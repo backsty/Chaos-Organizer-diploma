@@ -1,15 +1,19 @@
 import MainPage from "./MainPage";
 import Templates from "./Templates";
 
-const LOCAL_API = 'http://localhost:3001';
+// const LOCAL_API = 'http://localhost:3001';
 const REMOTE_API = 'https://chaos-organizer-diploma.onrender.com';
 
 function getBaseURL() {
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    return LOCAL_API;
-  }
   return REMOTE_API;
 }
+
+// function getBaseURL() {
+//   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+//     return LOCAL_API;
+//   }
+//   return REMOTE_API;
+// }
 
 export default class LoginPage {
   constructor(element) {

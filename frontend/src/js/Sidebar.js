@@ -2,15 +2,19 @@ import { debounceTime, fromEvent, pluck, filter, switchMap } from "rxjs";
 import Templates from "./Templates";
 // import Utils from "./utils/utils";
 
-const LOCAL_API = 'http://localhost:3001';
+// const LOCAL_API = 'http://localhost:3001';
 const REMOTE_API = 'https://chaos-organizer-diploma.onrender.com';
 
 function getBaseURL() {
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    return LOCAL_API;
-  }
   return REMOTE_API;
 }
+
+// function getBaseURL() {
+//   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+//     return LOCAL_API;
+//   }
+//   return REMOTE_API;
+// }
 
 export default class Sidebar {
   constructor(container, options) {
