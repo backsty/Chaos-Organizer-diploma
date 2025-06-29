@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   const isDevelopment = mode === 'development';
 
   return {
+    base: '/Chaos-Organizer-diploma/',
     root: 'src',
     publicDir: '../public',
     envPrefix: ['VITE_'],
