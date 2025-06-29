@@ -1,5 +1,8 @@
 # Дипломное задание к курсу «Продвинутый JavaScript в браузере». Chaos Organizer
 
+[![Deploy Frontend](https://github.com/backsty/Chaos-Organizer-diploma/actions/workflows/deploy.yml/badge.svg)](https://github.com/backsty/Chaos-Organizer-diploma/actions/workflows/deploy.yml)
+[![Backend on Render](https://img.shields.io/badge/Backend%20on%20Render-chaos--organizer--diploma.onrender.com-blue?logo=render&logoColor=white&labelColor=222)](https://chaos-organizer-diploma.onrender.com/)
+
 ---
 
 ###### tags: `netology` `advanced js in html`

@@ -3,7 +3,7 @@ import Templates from "./Templates";
 // import Utils from "./utils/utils";
 
 const LOCAL_API = 'http://localhost:3001';
-const REMOTE_API = 'https://ahj-diploma-chaos-organizer.onrender.com';
+const REMOTE_API = 'https://chaos-organizer-diploma.onrender.com';
 
 function getBaseURL() {
   if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
