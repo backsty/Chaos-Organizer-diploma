@@ -1,3 +1,3 @@
 import './server.js';
 
-console.log('🎯 Chaos Organizer Backend запущен');
+console.info('🎯 Chaos Organizer Backend запущен');

@@ -3,7 +3,7 @@ import Router from 'koa-router';
 
 const router = new Router();
 
-router.post('/register', async (ctx) => {
+router.post('/register', async ctx => {
   const { login, password } = ctx.request.body;
 
   // Проверка на существующего пользователя
@@ -11,7 +11,7 @@ router.post('/register', async (ctx) => {
     ctx.status = 409;
     ctx.response.body = {
       success: false,
-      data: "Пользователь с таким логином уже существует"
+      data: 'Пользователь с таким логином уже существует',
     };
     return;
   }
@@ -32,7 +32,7 @@ router.post('/register', async (ctx) => {
     ctx.status = 500;
     ctx.response.body = {
       success: false,
-      data: "Ошибка при создании пользователя"
+      data: 'Ошибка при создании пользователя',
     };
     return;
   }
@@ -51,7 +51,7 @@ router.post('/register', async (ctx) => {
       user,
       users: server.db.users,
       groups: server.db.groups,
-    }
+    },
   };
 });
 

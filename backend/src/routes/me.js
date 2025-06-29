@@ -3,11 +3,11 @@ import Router from 'koa-router';
 
 const router = new Router();
 
-router.get('/me', async (ctx) => {
+router.get('/me', async ctx => {
   const userID = ctx.cookies.get('userID');
   if (!userID) {
     ctx.status = 401;
-    ctx.response.body = { success: false, data: "Не авторизован" };
+    ctx.response.body = { success: false, data: 'Не авторизован' };
     return;
   }
   const user = server.db.findUser(userID);
@@ -20,7 +20,7 @@ router.get('/me', async (ctx) => {
     };
   } else {
     ctx.status = 401;
-    ctx.response.body = { success: false, data: "Пользователь не найден" };
+    ctx.response.body = { success: false, data: 'Пользователь не найден' };
   }
 });
 

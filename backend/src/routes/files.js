@@ -3,9 +3,9 @@ import Router from 'koa-router';
 
 const router = new Router();
 
-router.post('/files', async (ctx) => {
+router.post('/files', async ctx => {
   try {
-    console.log('ctx.request.files:', ctx.request.files);
+    console.info('ctx.request.files:', ctx.request.files);
     const { file } = ctx.request.files || {};
     const { body } = ctx.request;
     if (!file) {
@@ -18,7 +18,7 @@ router.post('/files', async (ctx) => {
     server.db.addFileMessage(file, body);
     ctx.response.body = {
       success: true,
-    }
+    };
   } catch (err) {
     console.error('Ошибка при загрузке файла:', err);
     ctx.status = 500;

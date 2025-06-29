@@ -5,11 +5,11 @@ const router = new Router();
 
 faker.locale = 'ru';
 
-router.get('/phrase', async (ctx) => {
+router.get('/phrase', async ctx => {
   ctx.response.body = {
     success: true,
     data: faker.hacker.phrase(),
-  }
+  };
 });
 
 export default router;

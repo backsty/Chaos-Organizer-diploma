@@ -3,7 +3,7 @@ import Router from 'koa-router';
 
 const router = new Router();
 
-router.post('/login', async (ctx) => {
+router.post('/login', async ctx => {
   const { login, password } = ctx.request.body;
 
   // Проверяем наличие пользователя
@@ -27,13 +27,13 @@ router.post('/login', async (ctx) => {
         user,
         users: server.db.users,
         groups: server.db.groups,
-      }
+      },
     };
   } else {
     ctx.status = 401;
     ctx.response.body = {
       success: false,
-      data: "Пользователь не найден"
+      data: 'Пользователь не найден',
     };
   }
 });

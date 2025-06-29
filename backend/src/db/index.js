@@ -89,8 +89,8 @@ export default class DataBase {
             userID: '22c355f8-b537-4e82-b267-1af2940d0fde',
             file: {
               type: 'video/mp4',
-              name: '100914-video-1080.mp4'
-            }
+              name: '100914-video-1080.mp4',
+            },
           },
           {
             time: DataBase.getDate(),
@@ -101,8 +101,8 @@ export default class DataBase {
             userID: '22c355f8-b537-4e82-b267-1af2940d0fde',
             file: {
               type: 'audio/mpeg',
-              name: '7e21749c-23e7-40d4-8ccc-976caa773f19.mp3'
-            }
+              name: '7e21749c-23e7-40d4-8ccc-976caa773f19.mp3',
+            },
           },
           {
             time: DataBase.getDate(),
@@ -113,8 +113,8 @@ export default class DataBase {
             userID: '22c355f8-b537-4e82-b267-1af2940d0fde',
             file: {
               type: 'audio/webm;codecs=opus',
-              name: 'dca14845-f9eb-4f55-8708-bfc692ffef85'
-            }
+              name: 'dca14845-f9eb-4f55-8708-bfc692ffef85',
+            },
           },
           {
             time: DataBase.getDate(),
@@ -125,22 +125,25 @@ export default class DataBase {
             userID: '22c355f8-b537-4e82-b267-1af2940d0fde',
             file: {
               type: 'image/jpeg',
-              name: '5c13ad1756280167acdc2339.jpg'
-            }
+              name: '5c13ad1756280167acdc2339.jpg',
+            },
           },
         ],
       },
-    ]
+    ];
 
     this.chunkLength = 10;
     this.fileName = null;
-    this.emoji = `😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 🥰 😗 😜 😙 😚 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 🥵 🥶 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🥳 🥴 🥺 🤥 🤫 🤭 🧐 🤓 😈 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾 👋 🤚 🖐 ✋ 🖖 👌 🤌 🤏 ✌️ 🤞 🤟 🤘 🤙 👈 👉 👆 🖕 👇 ☝️ 👍 👎 ✊ 👊 🤛 🤜 👏 🙌 👐 🤲 🤝 🙏 ✍️ 💅 🤳 💪 🦾 🦵 🦿 🦶 👣 👂 🦻 👃 🫀 🫁 🧠 🦷 🦴 👀 👁 👅 👄 💋 🩸`.split(' ');
+    this.emoji =
+      `😀 😁 😂 🤣 😃 😄 😅 😆 😉 😊 😋 😎 😍 😘 🥰 😗 😜 😙 😚 🙂 🤗 🤩 🤔 🤨 😐 😑 😶 🙄 😏 😣 😥 😮 🤐 😯 😪 😫 😴 😌 😛 😝 🤤 😒 😓 😔 😕 🙃 🤑 😲 ☹️ 🙁 😖 😞 😟 😤 😢 😭 😦 😧 😨 😩 🤯 😬 😰 😱 🥵 🥶 😳 🤪 😵 😡 😠 🤬 😷 🤒 🤕 🤢 🤮 🤧 😇 🤠 🤡 🥳 🥴 🥺 🤥 🤫 🤭 🧐 🤓 😈 👹 👺 💀 👻 👽 🤖 💩 😺 😸 😹 😻 😼 😽 🙀 😿 😾 👋 🤚 🖐 ✋ 🖖 👌 🤌 🤏 ✌️ 🤞 🤟 🤘 🤙 👈 👉 👆 🖕 👇 ☝️ 👍 👎 ✊ 👊 🤛 🤜 👏 🙌 👐 🤲 🤝 🙏 ✍️ 💅 🤳 💪 🦾 🦵 🦿 🦶 👣 👂 🦻 👃 🫀 🫁 🧠 🦷 🦴 👀 👁 👅 👄 💋 🩸`.split(
+        ' '
+      );
   }
 
   getMesPassword(dialog, dialogID, mesID) {
     const { messages } = this.getDialog(dialogID, dialog);
-    if (messages.some((mes) => mes.mesID === mesID)) {
-      return messages.find((mes) => mes.mesID === mesID).password;
+    if (messages.some(mes => mes.mesID === mesID)) {
+      return messages.find(mes => mes.mesID === mesID).password;
     }
   }
 
@@ -156,9 +159,9 @@ export default class DataBase {
       try {
         const regex = new RegExp(data.value, 'i');
         return messages
-          .filter((mes) => typeof mes.message !== 'object')
-          .filter((mes) => regex.test(mes.message));
-      } catch (e) {
+          .filter(mes => typeof mes.message !== 'object')
+          .filter(mes => regex.test(mes.message));
+      } catch {
         return [];
       }
     }
@@ -167,32 +170,38 @@ export default class DataBase {
   getAttachments(dialog, dialogID) {
     if (dialog === 'group') {
       const { messages } = this.getDialog(dialogID, dialog);
-      const fileMes = messages.filter((mes) => mes.file);
+      const fileMes = messages.filter(mes => mes.file);
       const links = messages
-        .filter((mes) => typeof mes.message !== 'object')
-        .filter((mes) => this.checkLink(mes.message));
+        .filter(mes => typeof mes.message !== 'object')
+        .filter(mes => this.checkLink(mes.message));
       const images = fileMes
-        .filter((mes) => mes.file && mes.file.type && mes.file.type.startsWith('image'))
-        .map((mes) => mes.file.name);
+        .filter(mes => mes.file && mes.file.type && mes.file.type.startsWith('image'))
+        .map(mes => mes.file.name);
       const video = fileMes
-        .filter((mes) => mes.file && mes.file.type && mes.file.type.startsWith('video'))
-        .map((mes) => mes.file.name);
+        .filter(mes => mes.file && mes.file.type && mes.file.type.startsWith('video'))
+        .map(mes => mes.file.name);
       const voice = fileMes
-        .filter((mes) => mes.file && mes.file.type === 'audio/webm;codecs=opus')
-        .map((mes) => mes.file.name);
+        .filter(mes => mes.file && mes.file.type === 'audio/webm;codecs=opus')
+        .map(mes => mes.file.name);
       const audio = fileMes
-        .filter((mes) => mes.file && mes.file.type && mes.file.type.startsWith('audio') && mes.file.type !== 'audio/webm;codecs=opus')
-        .map((mes) => mes.file.name);
+        .filter(
+          mes =>
+            mes.file &&
+            mes.file.type &&
+            mes.file.type.startsWith('audio') &&
+            mes.file.type !== 'audio/webm;codecs=opus'
+        )
+        .map(mes => mes.file.name);
       return { images, video, voice, audio, links };
     }
   }
 
   setOnlineStatus(id) {
-    this.users.find((user) => user.id === id).online = true;
+    this.users.find(user => user.id === id).online = true;
   }
 
   setOflineStatus(id) {
-    this.users.find((user) => user.id === id).online = false;
+    this.users.find(user => user.id === id).online = false;
   }
 
   addUser(data, avatar = null) {
@@ -227,7 +236,7 @@ export default class DataBase {
   }
 
   addTextMessage(userID, dialog, dialogID, message, encryption, password) {
-    const user = this.users.find((user) => user.id === userID);
+    const user = this.users.find(user => user.id === userID);
     const messageObj = {
       time: DataBase.getDate(),
       mesID: uuidv4(),
@@ -236,17 +245,17 @@ export default class DataBase {
       userID,
       encryption,
       password,
-    }
+    };
     if (dialog === 'group') {
-      const group = this.groups.find((group) => group.id === dialogID);
+      const group = this.groups.find(group => group.id === dialogID);
       group.messages.push(messageObj);
     }
     if (dialog === 'personal') {
-      if (user.dialogues.some((dialog) => dialog.id === dialogID)) {
-        user.dialogues.find((dialog) => dialog.id === dialogID).messages.push(messageObj);
+      if (user.dialogues.some(dialog => dialog.id === dialogID)) {
+        user.dialogues.find(dialog => dialog.id === dialogID).messages.push(messageObj);
       } else {
         this.addDialog(user.dialogues, user.id);
-        user.dialogues.find((dialog) => dialog.id === dialogID).messages.push(messageObj);
+        user.dialogues.find(dialog => dialog.id === dialogID).messages.push(messageObj);
       }
     }
   }
@@ -255,7 +264,7 @@ export default class DataBase {
     const dialog = {
       id: userID,
       messages: [],
-    }
+    };
     dialogues.push(dialog);
   }
 
@@ -263,7 +272,7 @@ export default class DataBase {
     if (data.dialog === 'group') {
       const group = this.getDialog(data.dialogID, data.dialog);
       const user = this.findUser(data.user);
-      const dataEncrypt = JSON.parse(data.encryption)
+      const dataEncrypt = JSON.parse(data.encryption);
       const messageObj = {
         time: DataBase.getDate(),
         mesID: uuidv4(),
@@ -276,15 +285,15 @@ export default class DataBase {
           type: file.type || file.mimetype,
           name: this.fileName,
           originalName: file.originalFilename || file.name,
-        }
-      }
+        },
+      };
       group.messages.push(messageObj);
     }
   }
 
   getDialog(dialogID, dialog) {
     if (dialog === 'group') {
-      return this.groups.find((group) => group.id === dialogID);
+      return this.groups.find(group => group.id === dialogID);
     }
   }
 
@@ -321,7 +330,7 @@ export default class DataBase {
       readStream.on('error', reject);
       writeStream.on('error', reject);
       writeStream.on('finish', () => {
-        fs.unlink(data.filepath, (err) => {
+        fs.unlink(data.filepath, err => {
           if (err) console.error('Ошибка удаления временного файла:', err);
           resolve();
         });
@@ -332,34 +341,30 @@ export default class DataBase {
   }
 
   checkUser(data) {
-    return this.users
-      .some((user) => user.login === data.login
-        && user.password === data.password);
+    return this.users.some(user => user.login === data.login && user.password === data.password);
   }
 
   findUser(id) {
-    if (this.users.some((user) => user.id === id)) {
-      return this.users.find((user) => user.id === id);
+    if (this.users.some(user => user.id === id)) {
+      return this.users.find(user => user.id === id);
     }
     return false;
   }
 
   getUser(data) {
-    return this.users
-      .find((user) => user.login === data.login &&
-        user.password === data.password);
+    return this.users.find(user => user.login === data.login && user.password === data.password);
   }
 
   static getDate() {
-    const formatter = new Intl.DateTimeFormat("ru", {
-      timeZone: "Europe/Moscow",
-      hour: "numeric",
-      minute: "numeric",
-      day: "numeric",
-      month: "numeric",
-      year: "numeric",
+    const formatter = new Intl.DateTimeFormat('ru', {
+      timeZone: 'Europe/Moscow',
+      hour: 'numeric',
+      minute: 'numeric',
+      day: 'numeric',
+      month: 'numeric',
+      year: 'numeric',
     });
-    return ((str) => {
+    return (str => {
       const temp = str.split(' ');
       const date = [temp[1], temp[0].slice(0, -1)].join(' ');
       return date;

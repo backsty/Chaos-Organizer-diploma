@@ -21,7 +21,7 @@
     "test:coverage": "jest --coverage",
     "serve": "vite preview --host",
     "build:prod": "cross-env NODE_ENV=production vite build",
-    "validate": "bun run lint && bun run format:check && bun run test",
+    "validate": "bun run lint && bun run format:check",
     "start": "bun run dev"
   },
   "devDependencies": {

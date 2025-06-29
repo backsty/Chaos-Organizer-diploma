@@ -3,12 +3,12 @@ import Router from 'koa-router';
 
 const router = new Router();
 
-router.post('/attachments', async (ctx) => {
+router.post('/attachments', async ctx => {
   const { body } = ctx.request;
   ctx.response.body = {
     success: true,
-    data: server.db.getAttachments(body.dialog, body.dialogID)
-  }
+    data: server.db.getAttachments(body.dialog, body.dialogID),
+  };
 });
 
 export default router;
