@@ -1,0 +1,51 @@
+name: Deploy Frontend
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  deploy-frontend:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: "latest"
+
+      - name: Install Dependencies
+        working-directory: frontend
+        run: bun install
+        env:
+          CI: true
+
+      - name: Lint
+        working-directory: frontend
+        run: bun run lint
+
+      - name: Build
+        working-directory: frontend
+        run: bun run build
+        env:
+          NODE_ENV: production
+          ASSET_PATH: '/Chaos-Organizer-diploma/'
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: frontend/dist
+          branch: gh-pages
+          clean: true

@@ -1,0 +1,14 @@
+{
+  "name": "Chaos Organizer",
+  "short_name": "Organizer",
+  "description": "A productivity app that helps you organize chaos in your daily life",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4285f4",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "categories": ["productivity", "organization", "utilities"],
+  "orientation": "any",
+  "lang": "ru-RU"
+}

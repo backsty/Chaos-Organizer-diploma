@@ -1,0 +1,107 @@
+@use "vars.scss" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+:focus,
+:active {
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: $minWidth;
+}
+
+body {
+  line-height: 1.5;
+  font-family: $fontFamily;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background: none;
+  color: inherit;
+}
+
+input,
+button,
+textarea {
+  font-family: $fontFamily;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+  vertical-align: top;
+  box-shadow: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"],
+input[type="number"]:hover,
+input[type="number"]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}

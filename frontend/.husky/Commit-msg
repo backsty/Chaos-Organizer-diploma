@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+message="$(cat $1)"
+required_pattern="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?: .{1,100}"
+
+if ! echo "$message" | grep -E "$required_pattern" > /dev/null; then
+  echo "🚨 Неправильный формат коммит-сообщения."
+  echo "Формат должен быть: type(scope): message"
+  echo "Доступные типы: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert"
+  echo "Примеры: feat(ui): добавлен компонент кнопки"
+  echo "         fix(api): исправлена ошибка в запросе сообщений"
+  exit 1
+fi

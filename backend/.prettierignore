@@ -1,0 +1,9 @@
+dist
+node_modules
+coverage
+.git
+bun.lockb
+*.min.js
+*.log
+uploads/*
+!uploads/.gitkeep

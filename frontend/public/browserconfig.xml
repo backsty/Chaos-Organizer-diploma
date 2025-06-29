@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <!-- Настройки для Windows 8/10 Live Tiles -->
+    <tile>
+      <!-- Цвет фона плитки -->
+      <square70x70logo src="/assets/icons/tile-70x70.png"/>
+      <square150x150logo src="/assets/icons/tile-150x150.png"/>
+      <wide310x150logo src="/assets/icons/tile-310x150.png"/>
+      <square310x310logo src="/assets/icons/tile-310x310.png"/>
+      <TileColor>#2196F3</TileColor>
+    </tile>
+    
+    <!-- Настройки уведомлений (опционально) -->
+    <notification>
+      <polling-uri src="/api/notifications/polling"/>
+      <frequency>30</frequency>
+      <cycle>1</cycle>
+    </notification>
+    
+    <!-- Навигационный цвет для Windows -->
+    <navbutton-color>#1976D2</navbutton-color>
+    
+    <!-- Настройки для Microsoft Edge -->
+    <badge>
+      <polling-uri src="/api/badge/polling"/>
+      <frequency>60</frequency>
+    </badge>
+  </msapplication>
+</browserconfig>

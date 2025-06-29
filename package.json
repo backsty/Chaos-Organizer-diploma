@@ -1,0 +1,44 @@
+{
+  "name": "chaos-organizer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bot-organizer for your information needs",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "setup": "bun run setup:frontend && bun run setup:backend",
+    "setup:frontend": "cd frontend && bun install --force",
+    "setup:backend": "cd backend && bun install --force",
+    "dev": "concurrently \"bun run dev:frontend\" \"bun run dev:backend\"",
+    "dev:frontend": "bun run --cwd frontend dev",
+    "dev:backend": "bun run --cwd backend dev",
+    "build": "bun run build:frontend && bun run build:backend",
+    "build:frontend": "bun run --cwd frontend build",
+    "build:backend": "bun run --cwd backend build",
+    "lint": "bun run lint:frontend && bun run lint:backend",
+    "lint:frontend": "bun run --cwd frontend lint",
+    "lint:backend": "bun run --cwd backend lint",
+    "format": "bun run format:frontend && bun run format:backend",
+    "format:frontend": "bun run --cwd frontend format",
+    "format:backend": "bun run --cwd backend format",
+    "clean": "rimraf node_modules && bun run clean:frontend && bun run clean:backend",
+    "clean:frontend": "bun run --cwd frontend clean",
+    "clean:backend": "bun run --cwd backend clean",
+    "deploy:frontend": "bun run --cwd frontend deploy",
+    "start:backend": "bun run --cwd backend start"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "lint-staged": "^15.5.0",
+    "rimraf": "^6.0.1",
+    "vite-plugin-eslint": "^1.8.1"
+  },
+  "engines": {
+    "node": ">=18",
+    "bun": ">=1.0.0"
+  }
+}
