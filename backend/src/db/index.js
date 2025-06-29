@@ -81,7 +81,7 @@ export default class DataBase {
             userID: '22c355f8-b537-4e82-b267-1af2940d0fde',
           },
           {
-            time: '17:12 14.01.2022',
+            time: DataBase.getDate(),
             mesID: 'd337259b-b6b3-4b01-be2d-5e0035a53111',
             message: '',
             encryption: false,
@@ -89,11 +89,11 @@ export default class DataBase {
             userID: '22c355f8-b537-4e82-b267-1af2940d0fde',
             file: {
               type: 'video/mp4',
-              name: 'a20b42b9-d32e-46ed-8c39-a981fcc58e3f.mp4'
+              name: '100914-video-1080.mp4'
             }
           },
           {
-            time: '17:17 14.01.2022',
+            time: DataBase.getDate(),
             mesID: '5c8202ec-09af-41b3-9a4e-875f89f07a26',
             message: '',
             encryption: false,
@@ -105,7 +105,7 @@ export default class DataBase {
             }
           },
           {
-            time: '17:29 14.01.2022',
+            time: DataBase.getDate(),
             mesID: 'c9426414-e579-4ee0-a796-a47489e5a600',
             message: '',
             encryption: false,
@@ -117,7 +117,7 @@ export default class DataBase {
             }
           },
           {
-            time: '17:38 14.01.2022',
+            time: DataBase.getDate(),
             mesID: '2a072aea-796b-4ea0-a4e9-9d6d47cbdb81',
             message: '',
             encryption: false,
@@ -125,7 +125,7 @@ export default class DataBase {
             userID: '22c355f8-b537-4e82-b267-1af2940d0fde',
             file: {
               type: 'image/jpeg',
-              name: '194508cb-de8d-40f9-b064-e88709dde509.jpg'
+              name: '5c13ad1756280167acdc2339.jpg'
             }
           },
         ],
@@ -153,9 +153,14 @@ export default class DataBase {
   filterMessages(data) {
     if (data.dialog === 'group') {
       const { messages } = this.getDialog(data.dialogID, data.dialog);
-      return messages
-        .filter((mes) => typeof mes.message !== 'object')
-        .filter((mes) => mes.message.match(data.value));
+      try {
+        const regex = new RegExp(data.value, 'i');
+        return messages
+          .filter((mes) => typeof mes.message !== 'object')
+          .filter((mes) => regex.test(mes.message));
+      } catch (e) {
+        return [];
+      }
     }
   }
 

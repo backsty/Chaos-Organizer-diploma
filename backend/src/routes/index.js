@@ -9,6 +9,7 @@ import validate_mesRouter from './validate_mes.js';
 import emojiRouter from './emoji.js';
 import decryptionRouter from './decryptions.js';
 import phraseRouter from './phrase.js';
+import meRouter from './me.js';
 
 const router = combineRouters(
   loginRouter,
@@ -20,6 +21,7 @@ const router = combineRouters(
   emojiRouter,
   decryptionRouter,
   phraseRouter,
+  meRouter
 );
 
 export default router;

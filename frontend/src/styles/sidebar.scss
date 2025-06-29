@@ -1,7 +1,7 @@
 @use "vars.scss" as *;
 
 .app__sidebar {
-  width: 340px; // фиксированная ширина для стабильности
+  width: 340px;
   min-width: 280px;
   max-width: 100vw;
   border-right: 1px solid $graphite_light;
@@ -27,7 +27,6 @@
 
   .button {
     &.close-sb {
-      // background-image: url("../images/close-line.svg");
       background-image: url("../assets/icons/cross-small-svgrepo-com.svg");
       filter: brightness(0) invert(1); // делает иконку белой
       background-size: 60%;

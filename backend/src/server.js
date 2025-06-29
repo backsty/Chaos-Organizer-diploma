@@ -31,11 +31,19 @@ app.use(koaBody({
   formidable: { multiples: false }
 }));
 
-// Cors
+// Исправленный CORS
 app.use(cors({
-  origin: '*',
+  origin: (ctx) => {
+    const allowed = [
+      'http://localhost:5173',
+      'http://localhost:3001'
+    ];
+    if (allowed.includes(ctx.request.header.origin)) {
+      return ctx.request.header.origin;
+    }
+    return '';
+  },
   credentials: true,
-  'Access-Control-Allow-Origin': true,
 }));
 
 // Обработчик роутеров
@@ -68,7 +76,6 @@ wsServer.on('connection', (ws) => {
     } else {
       sendingToAll(result);
     }
-    
   });
 
   ws.on('close', () => {
@@ -87,7 +94,7 @@ wsServer.on('connection', (ws) => {
 });
 
 // Прослушивание порта
-const port = process.env.PORT || 8085;
+const port = process.env.PORT || 3001;
 server.listen(port);
 console.log(`the server is started on port ${port}`);
 

@@ -533,7 +533,6 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      // background-color: transparent; // не нужен!
     }
 
     &.find {
@@ -548,7 +547,6 @@
 .messages__content {
   height: 82vh;
   overflow: auto;
-  // padding: 1em 3em;
   padding: 1em 3em 1em 2em;
 
   &.emoji {
@@ -562,7 +560,7 @@
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 2rem;
-    content: "Перетащите файл сюда для отправки в виде файла";
+    content: "Перетащите файл сюда для их отправки в виде файла";
     width: 100%;
     height: 82vh;
     top: 2.28em;
@@ -678,7 +676,6 @@
     }
 
     .btn-wrap.lock {
-      // margin: 1em 100% 0 0;
       padding: 8px 9px 5px;
     }
 
@@ -905,7 +902,6 @@
 // --- КНОПКИ С ИКОНКАМИ ---
 
 .button {
-  // УБРАН background-color: inherit; и любые фоны!
   background: none;
   background-size: contain;
   background-repeat: no-repeat;
