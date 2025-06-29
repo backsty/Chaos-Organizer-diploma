@@ -36,7 +36,8 @@ app.use(cors({
   origin: (ctx) => {
     const allowed = [
       'http://localhost:5173',
-      'http://localhost:3001'
+      'http://localhost:3001',
+      'https://backsty.github.io'
     ];
     if (allowed.includes(ctx.request.header.origin)) {
       return ctx.request.header.origin;
